@@ -1,0 +1,21 @@
+[
+  {
+    "url": "https://inviteora.com",
+    "method": "GET",
+    "timeout": 2000,
+    "expectedStatusCode": 200,
+    "maxResponseTime": 1000,
+    "priority": 2,
+    "outputFileName": "inviteora_health.json" 
+  },
+  {
+    "url": "https://aeternitychat.in",
+    "method": "GET",
+    "timeout": 2000,
+    "expectedStatusCode": 200,
+    "maxResponseTime": 1000,
+    "priority": 1,
+    "outputFileName": "aeternity_health.json"
+  }
+
+]
