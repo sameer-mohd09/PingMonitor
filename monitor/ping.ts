@@ -1,24 +1,20 @@
-export async function pingURL(config: {
-  url: string;
-  method: string;
-  headers?: Record<string, string>;
-  timeout?: number;
-}) {
+import { SiteSetting } from "../types.ts";
+
+export async function pingURL(setting: SiteSetting) {
   const controller = new AbortController();
-  const timeoutId = setTimeout(() => controller.abort(), config.timeout ?? 3000);
+  const timeoutId = setTimeout(() => controller.abort(), setting.timeout ?? 3000);
 
   const start = performance.now();
 
   try {
-    const res = await fetch(config.url, {
-      method: config.method || "GET",
-      headers: config.headers,
+    const res = await fetch(setting.url, {
+      method: "GET",
       signal: controller.signal
     });
 
     const end = performance.now();
     return {
-      url: config.url,
+      url: setting.url,
       status: res.status,
       responseTime: Math.round(end - start),
       success: res.ok
@@ -26,7 +22,7 @@ export async function pingURL(config: {
   } catch (err) {
     const error=err as Error;
     return {
-      url: config.url,
+      url: setting.url,
       status: null,
       responseTime: null,
       success: false,
