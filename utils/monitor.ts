@@ -16,6 +16,12 @@ const result = {
   timeWithinLimit: (resultRaw.responseTime ?? Infinity) <= (settings.maxResponseTime ?? Infinity)
 };
 
+
+
+
+
+
+
   const filename = settings.name || sanitizeFilename(settings.url) + ".json";
   const filepath = join("output", filename);
 
