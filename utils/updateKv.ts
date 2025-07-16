@@ -1,4 +1,4 @@
-
+//only file which is connexted to config
 
 import config from "../config/default.json" with { type: "json" };
 import { getAllSettings, saveSetting, deleteSettings } from "../kv/kv.ts";

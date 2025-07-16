@@ -1,4 +1,4 @@
-import { assert } from "https://deno.land/std@0.203.0/assert/assert.ts";
+// import { assert } from "https://deno.land/std@0.203.0/assert/assert.ts";
 import { SiteSetting } from "../types.ts";
 
 
@@ -9,12 +9,12 @@ export async function saveSetting(key: string, value: SiteSetting) {
   await kv.set(["settings", key], value);
 }
 
-export async function getSetting(key: string): Promise<SiteSetting> {
-  const result = await kv.get<SiteSetting>(["settings", key]);
-  assert(result.value, `Setting not found for key: ${key}`);
-  return result.value;
+// export async function getSetting(key: string): Promise<SiteSetting> {
+//   const result = await kv.get<SiteSetting>(["settings", key]);
+//   assert(result.value, `Setting not found for key: ${key}`);
+//   return result.value;
 
-}
+// }
 
 export async function getAllSettings(): Promise<SiteSetting[]>{
    const settings=[];
